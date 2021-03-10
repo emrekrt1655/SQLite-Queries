@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:\Users\emrek\Desktop\SQLite Commits\chinook.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3528"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainalbums"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="albums" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="61"/><column index="2" value="300"/><column index="3" value="59"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT COUNT(TrackId) AS count_of_tracks FROM tracks;
+SELECT COUNT(TrackId) AS count_of_tracks FROM tracks;
+SELECT name, MIN(Milliseconds) AS min_duration from tracks;
+SELECT name, MAX(Milliseconds) AS max_duration from tracks;
+SELECT SUM(Total) AS total_amount_of_invoices from invoices ;
+SELECT AVG(Milliseconds) AS avg_duration from tracks;
+SELECT Composer, count(TrackId) AS no_of_tracks FROM tracks WHERE Composer IS NOT NULL GROUP BY composer ORDER BY no_of_tracks DESC;
+SELECT Country, COUNT(CustomerId) AS no_of_customers FROM customers WHERE Country IS NOT NULL GROUP BY Country ORDER BY no_of_customers DESC;
+ SELECT AlbumId, Name, MIN(Milliseconds) AS min_track FROM tracks GROUP BY AlbumId, Name ORDER BY min_track;
+ SELECT BillingCountry, SUM(Total) AS total_amount FROM invoices GROUP BY BillingCountry ORDER BY total_amount DESC;</sql><current_tab id="0"/></tab_sql></sqlb_project>
