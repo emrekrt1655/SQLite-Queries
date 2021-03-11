@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:\Users\emrek\Desktop\SQLite Commits\chinook.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3528"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainalbums"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">SELECT TrackId, Name, AlbumId FROM tracks WHERE AlbumId = (SELECT AlbumId From albums WHERE title = 'Faceless');
+SELECT t.TrackId, t.Name, t.AlbumId, a.Title FROM tracks t JOIN albums a ON t.AlbumId = a.AlbumId WHERE a.Title = 'Faceless';
+SELECT TrackId, name, AlbumId FROM tracks WHERE AlbumId IN (SELECT AlbumId from albums WHERE Title IN ('Faceless' , 'Let There Be Rock') );
+--CREATE TABLE vacation_plan (
+	--place_id INT,
+	--country TEXT,hotel_name TEXT,employeed_id INT,
+	--vacation_length INT,budget REAL);
+	
+INSERT INTO vacation_plan (place_id, country, hotel_name, employeed_id, vacation_length, budget)
+	VALUES(2, 'Canada', 'Hilton', 2, 5, 10000),
+		  (3, 'Canada', 'Hilton', 3, 5, 10000),
+		  (4, 'Canada', 'Hilton', 4, 5, 10000);
+DELETE FROM vacation_plan
+		WHERE employeed_id = 3;
+SELECT * FROM vacation_plan;
+DROP TABLE vacation_plan;
+CREATE TABLE vacation_plan 
+	(place_id INT PRIMARY KEY, 
+	country TEXT,
+	hotel_name TEXT NOT NULL,
+	EmployeeId INT,
+	vacation_length INT,
+	budget REAL,
+	FOREIGN KEY(EmployeeId)
+	REFERENCES employees(EmployeeId)
+	);
+	
+ALTER TABLE vacation_plan ADD city TEXT;
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
